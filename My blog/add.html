@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Blog web</title>
+    <style>
+       
+        *{
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .navbar{
+      position: fixed;
+      width: 100%;
+      background: rgba(34, 114, 139, 0.652) !important;
+      box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
+      transition: .6s;
+      z-index: 10;
+    }
+    
+    </style>
+  </head>
+  
+  <body>
+            <!-- Bootsrap Nav Bar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+                <img src="blog.png" alt="Blog image icon" width="8%">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="add.html">Add Blog</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="blog.html">All Blogs </a>
+                      </li>
+                   
+                    
+                  </ul>
+                 
+                </div>
+              </nav>
+              <!-- Ending Nav Bar-->
+              <br><br>
+      <!--HTML CODE-->
+    
+      <div class="jumbotron" style="background-color: rgb(184, 211, 233);">
+        
+          <center><h4 style="color: rgba(111, 30, 158, 0.868);">Add Blog</h4></center>
+          
+        <form action="#">
+            <div class="form-group">
+              <label style="color: rgba(111, 30, 158, 0.868);">Title</label>
+              <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Please enter your Title  for the blog ">
+            </div>
+            <div class="form-group">
+                <label style="color: rgba(111, 30, 158, 0.868);">Post Your Comment</label>
+                <textarea class="form-control" id="desc" rows="8" placeholder="Please enter the blog here "></textarea>
+              </div>
+              <a href="blog.html" style="text-decoration: none;">
+              <button type="button" style="background-color: rgba(111, 30, 158, 0.868);;" class="btn btn-success btn-lg btn-block" onclick="add_blog()">Submit</button>
+     </a>
+     <div class="main-content" id="main-content"></div>
+     
+            </div>
+    
+    <script>
+    // javascript Code
+    let add_blog=()=>{
+        let title=document.getElementById('title').value;
+        
+        let desc=document.getElementById('desc').value;
+        let blogs=[]
+        let localblog=localStorage.getItem('blogs');
+        if(localblog!=null)
+        {
+            blogs=JSON.parse(localblog);
+        }
+        let blogobject={
+            title:title,
+            desc:desc,
+            id:Math.trunc(Math.random()*1000)
+        };
+        blogs.push(blogobject);
+        localStorage.setItem('blogs',JSON.stringify(blogs));
+        show_blog();
+    };
+
+    </script>
+     <!--I am Overing Bootsrap Grid-->
+  <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>My Website..
+            </h6>
+            <p>
+             Create Your Blog by clicking on Add Blog so that the new User Can Know  About the Company .Stay Safe.. 
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Home</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Add Blog</a>
+            </p>
+           
+           
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">About Us</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">All Blog</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset"></a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset"></a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p><i class="fas fa-home me-3"></i> Sriteja Valaboju</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              sritejavalaboju000@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> 9346493360</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(90, 161, 140, 0.734);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="">SRITEJA VALABOJU</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
